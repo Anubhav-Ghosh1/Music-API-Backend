@@ -32,6 +32,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         // cloudinary url
     },
+    role:
+    {
+        type: String,
+        enum: ["user","admin"],
+    },
     password:
     {
         type: String,

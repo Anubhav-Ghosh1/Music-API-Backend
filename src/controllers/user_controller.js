@@ -30,7 +30,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     //     message: "Ok"
     // })
     // Take user input
-    const { fullName, email, username, password } = req.body;
+    const { fullName, email, username, password, role } = req.body;
     // validate input
     if (!fullName || !email || !username || !password) {
         throw new ApiError(400, "Fields are required");
@@ -74,6 +74,7 @@ export const registerUser = asyncHandler(async (req, res) => {
         fullName,
         email,
         password,
+        role,
         avatar: avatar.url,
         cloudinary_avatar_public_id:avatar?.public_id,
         cloudinary_coverImage_public_id:coverImage?.public_id || "",

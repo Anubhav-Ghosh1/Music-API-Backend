@@ -26,3 +26,11 @@ export const verifyJWT = asyncHandler(async(req,res,next) => {
         throw new ApiError(401,error?.message || "Invalid token");
     }
 })
+
+export const verifyAdmin = asyncHandler(async(req,res,next) => {
+    if(req.user.role !== "admin")
+    {
+        throw new ApiError(403,"Unauthorized request");
+    }
+    next();
+});
